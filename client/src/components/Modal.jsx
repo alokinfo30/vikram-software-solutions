@@ -1,4 +1,4 @@
-// client/src/components/Modal.jsx
+ // client/src/components/Modal.jsx
 import React, { useEffect } from 'react';
 import { FaTimes } from 'react-icons/fa';
 
