@@ -105,8 +105,8 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(path.resolve(), '../client/build')));
   
   // The "catch-all" handler for any request that doesn't match an API route
-  app.get('/*', (req, res) => {
-    res.sendFile(path.resolve(path.resolve(), '../client', 'build', 'index.html'));
+  app.get('*any', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'));
   });
 }
 
