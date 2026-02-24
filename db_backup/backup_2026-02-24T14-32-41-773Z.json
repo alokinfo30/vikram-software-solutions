@@ -1,0 +1,391 @@
+{
+  "timestamp": "2026-02-24T14:32:41.509Z",
+  "database": "vikram-software",
+  "collections": {
+    "projects": [
+      {
+        "_id": "699b811afac3a6d42406f73c",
+        "name": "Corporate Website Redesign",
+        "description": "Complete redesign of corporate website with modern UI/UX",
+        "client": "699b811afac3a6d42406f732",
+        "assignedEmployees": [
+          "699b811afac3a6d42406f731"
+        ],
+        "status": "in-progress",
+        "serviceType": "Web Development",
+        "startDate": "2026-02-22T22:20:10.296Z",
+        "priority": "high",
+        "attachments": [],
+        "createdDate": "2026-02-22T22:20:10.312Z",
+        "updatedAt": "2026-02-24T12:28:56.993Z",
+        "__v": 0,
+        "createdAt": "2026-02-22T22:20:10.317Z",
+        "endDate": "2026-02-24T12:28:52.935Z"
+      },
+      {
+        "_id": "699b811afac3a6d42406f73d",
+        "name": "Inventory Management App",
+        "description": "Mobile app for inventory tracking",
+        "client": "699b811afac3a6d42406f734",
+        "assignedEmployees": [
+          "699b811afac3a6d42406f733"
+        ],
+        "status": "pending",
+        "serviceType": "Mobile App Development",
+        "priority": "medium",
+        "attachments": [],
+        "createdDate": "2026-02-22T22:20:10.313Z",
+        "updatedAt": "2026-02-22T22:20:10.313Z",
+        "__v": 0,
+        "createdAt": "2026-02-22T22:20:10.318Z"
+      },
+      {
+        "_id": "699b811afac3a6d42406f73e",
+        "name": "Database Optimization",
+        "description": "Optimize database queries and indexing",
+        "client": "699b811afac3a6d42406f736",
+        "assignedEmployees": [
+          "699b811afac3a6d42406f735"
+        ],
+        "status": "completed",
+        "serviceType": "Database Management",
+        "endDate": "2026-02-22T22:20:10.296Z",
+        "priority": "high",
+        "attachments": [],
+        "createdDate": "2026-02-22T22:20:10.314Z",
+        "updatedAt": "2026-02-22T22:20:10.314Z",
+        "__v": 0,
+        "createdAt": "2026-02-22T22:20:10.318Z"
+      },
+      {
+        "_id": "699b811afac3a6d42406f73f",
+        "name": "E-commerce Mobile App",
+        "description": "Native mobile app for iOS and Android app",
+        "client": "699b811afac3a6d42406f732",
+        "assignedEmployees": [
+          "699b811afac3a6d42406f731"
+        ],
+        "status": "in-progress",
+        "serviceType": "Mobile App Development",
+        "priority": "medium",
+        "attachments": [],
+        "createdDate": "2026-02-22T22:20:10.315Z",
+        "updatedAt": "2026-02-24T12:29:01.335Z",
+        "__v": 0,
+        "createdAt": "2026-02-22T22:20:10.318Z",
+        "startDate": "2026-02-24T08:51:04.506Z",
+        "endDate": "2026-02-24T10:41:40.658Z"
+      },
+      {
+        "_id": "699d870caaa87612b20a1d1d",
+        "name": "Website Development",
+        "description": "Need a modern responsive website for our company",
+        "client": "699b811afac3a6d42406f732",
+        "assignedEmployees": [],
+        "status": "pending",
+        "serviceType": "Website Development",
+        "priority": "medium",
+        "createdDate": "2026-02-24T11:10:04.636Z",
+        "attachments": [],
+        "updatedAt": "2026-02-24T11:10:04.638Z",
+        "createdAt": "2026-02-24T11:10:04.638Z",
+        "__v": 0
+      }
+    ],
+    "users": [
+      {
+        "_id": "699b811afac3a6d42406f730",
+        "firstName": "Admin",
+        "lastName": "User",
+        "email": "admin@vikram.com",
+        "password": "$2a$10$s/sUiGUDOGfxykVUrvgW4uUUkmvidj42nKxCaTtg4Fl4GGBGp4rOC",
+        "role": "admin",
+        "companyName": "Tech Corp",
+        "profilePicture": null,
+        "isActive": true,
+        "createdAt": "2026-02-22T22:20:10.256Z",
+        "updatedAt": "2026-02-24T12:29:45.672Z",
+        "__v": 0,
+        "lastLogin": "2026-02-24T12:29:45.669Z"
+      },
+      {
+        "_id": "699b811afac3a6d42406f731",
+        "firstName": "Employee",
+        "lastName": "User",
+        "email": "employee@vikram.com",
+        "password": "$2a$10$M9BLPa8U82..0Zbfml.zzelPyPX1XyxRwO.Ow2RBJEeQC83AAj/y2",
+        "role": "employee",
+        "companyName": "Tech Corp",
+        "profilePicture": null,
+        "phone": "+1234567890",
+        "isActive": true,
+        "createdAt": "2026-02-22T22:20:10.261Z",
+        "updatedAt": "2026-02-24T12:31:11.477Z",
+        "__v": 0,
+        "lastLogin": "2026-02-24T12:31:11.477Z"
+      },
+      {
+        "_id": "699b811afac3a6d42406f732",
+        "firstName": "Client",
+        "lastName": "User",
+        "email": "client@vikram.com",
+        "password": "$2a$10$ie2L72JH2Y6fDU3FyngmC.FDOJiKDegTHcfXeQ0.gpn0wprelRs3u",
+        "role": "client",
+        "companyName": "Design Studio",
+        "profilePicture": null,
+        "phone": "+1234567891",
+        "isActive": true,
+        "createdAt": "2026-02-22T22:20:10.262Z",
+        "updatedAt": "2026-02-24T11:55:31.687Z",
+        "__v": 0,
+        "lastLogin": "2026-02-24T11:55:31.684Z"
+      },
+      {
+        "_id": "699b811afac3a6d42406f733",
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "john.employee@vikram.com",
+        "password": "$2a$10$IlTjtfLJ7CufqinfVhs6POqDzwcGfgct44S4yZNKptJCIuHbYJvbu",
+        "role": "employee",
+        "companyName": "Tech Corp",
+        "profilePicture": null,
+        "phone": "+1234567890",
+        "isActive": true,
+        "createdAt": "2026-02-22T22:20:10.262Z",
+        "updatedAt": "2026-02-22T22:20:10.262Z",
+        "__v": 0
+      },
+      {
+        "_id": "699b811afac3a6d42406f734",
+        "firstName": "Jane",
+        "lastName": "Client",
+        "email": "jane.employee@vikram.com",
+        "password": "$2a$10$btIw1TnAurPDMn2DyOH.Uet7EHfJIMBetAovi5PPaQTBF4Hj6uiay",
+        "role": "client",
+        "companyName": "Design Studio",
+        "profilePicture": null,
+        "phone": "+1234567891",
+        "isActive": true,
+        "createdAt": "2026-02-22T22:20:10.262Z",
+        "updatedAt": "2026-02-22T22:20:10.262Z",
+        "__v": 0
+      },
+      {
+        "_id": "699b811afac3a6d42406f735",
+        "firstName": "Mike",
+        "lastName": "Johnson",
+        "email": "mike.client@vikram.com",
+        "password": "$2a$10$pa2JF4rv9fUO5PuyC2fgGO/VhArNChP9B2sUy1gwK/CdypFSce4Wi",
+        "role": "employee",
+        "companyName": "Tech Corp",
+        "profilePicture": null,
+        "phone": "+1234567892",
+        "isActive": true,
+        "createdAt": "2026-02-22T22:20:10.262Z",
+        "updatedAt": "2026-02-22T22:20:10.262Z",
+        "__v": 0
+      },
+      {
+        "_id": "699b811afac3a6d42406f736",
+        "firstName": "Sarah",
+        "lastName": "Williams",
+        "email": "sarah.client@vikram.com",
+        "password": "$2a$10$arDn0Z5HRxiyg2wIFkgmu.6/Nyk4IIMHrIYvbFF6ZsKZE7fvohjqS",
+        "role": "client",
+        "companyName": "Design Studio",
+        "profilePicture": null,
+        "phone": "+1234567893",
+        "isActive": true,
+        "createdAt": "2026-02-22T22:20:10.263Z",
+        "updatedAt": "2026-02-22T22:20:10.263Z",
+        "__v": 0
+      },
+      {
+        "_id": "699d8c02b8a91dcbab4a469e",
+        "firstName": "ALOK",
+        "lastName": "SRIVASTAVA",
+        "email": "alokinfo30@gmail.com",
+        "password": "$2a$10$yXuUL4DsA00Vm.wg8l6u5.WFBAfsDfXCXRcGJf3KRxz8P1hyVEhh2",
+        "role": "employee",
+        "companyName": "",
+        "profilePicture": null,
+        "isActive": true,
+        "createdAt": "2026-02-24T11:31:14.526Z",
+        "updatedAt": "2026-02-24T11:34:18.882Z",
+        "passwordChangedAt": "2026-02-24T11:31:14.743Z",
+        "__v": 0,
+        "lastLogin": "2026-02-24T11:34:18.877Z"
+      },
+      {
+        "_id": "699d8c53b8a91dcbab4a46a6",
+        "firstName": "ALOK",
+        "lastName": "SRIVASTAVA",
+        "email": "sralok1512@gmail.com",
+        "password": "$2a$10$fa/V8fB.bD71IGU1y9g1BOgdDAWgTgjcdDoBQFBt3Z4syfGQAlhPm",
+        "role": "client",
+        "companyName": "Cognizant",
+        "profilePicture": null,
+        "isActive": true,
+        "createdAt": "2026-02-24T11:32:35.140Z",
+        "updatedAt": "2026-02-24T11:41:19.605Z",
+        "passwordChangedAt": "2026-02-24T11:32:35.304Z",
+        "__v": 0,
+        "lastLogin": "2026-02-24T11:41:19.604Z"
+      }
+    ],
+    "servicerequests": [
+      {
+        "_id": "699b811afac3a6d42406f738",
+        "client": "699b811afac3a6d42406f732",
+        "serviceName": "Website Development",
+        "description": "Need a modern responsive website for our company",
+        "status": "approved",
+        "timeline": "normal",
+        "attachments": [],
+        "createdDate": "2026-02-22T22:20:10.299Z",
+        "__v": 0,
+        "createdAt": "2026-02-22T22:20:10.301Z",
+        "updatedAt": "2026-02-24T11:10:04.591Z",
+        "reviewedAt": "2026-02-24T11:10:04.588Z",
+        "reviewedBy": "699b811afac3a6d42406f730"
+      },
+      {
+        "_id": "699b811afac3a6d42406f739",
+        "client": "699b811afac3a6d42406f734",
+        "serviceName": "Mobile App Development",
+        "description": "iOS and Android app for our e-commerce platform",
+        "status": "approved",
+        "timeline": "urgent",
+        "reviewedAt": "2026-02-22T22:20:10.296Z",
+        "reviewedBy": "699b811afac3a6d42406f730",
+        "attachments": [],
+        "createdDate": "2026-02-22T22:20:10.299Z",
+        "__v": 0,
+        "createdAt": "2026-02-22T22:20:10.302Z",
+        "updatedAt": "2026-02-22T22:20:10.302Z"
+      },
+      {
+        "_id": "699b811afac3a6d42406f73a",
+        "client": "699b811afac3a6d42406f736",
+        "serviceName": "Cloud Migration",
+        "description": "Move our infrastructure to AWS",
+        "status": "rejected",
+        "timeline": "flexible",
+        "adminNotes": "Need more details about current infrastructure",
+        "reviewedAt": "2026-02-22T22:20:10.296Z",
+        "reviewedBy": "699b811afac3a6d42406f730",
+        "attachments": [],
+        "createdDate": "2026-02-22T22:20:10.300Z",
+        "__v": 0,
+        "createdAt": "2026-02-22T22:20:10.302Z",
+        "updatedAt": "2026-02-22T22:20:10.302Z"
+      },
+      {
+        "_id": "699d8e99b8a91dcbab4a4721",
+        "client": "699d8c53b8a91dcbab4a46a6",
+        "serviceName": "web",
+        "description": "fdffvdfvvv",
+        "status": "pending",
+        "timeline": "normal",
+        "createdDate": "2026-02-24T11:42:17.927Z",
+        "attachments": [],
+        "createdAt": "2026-02-24T11:42:17.930Z",
+        "updatedAt": "2026-02-24T11:42:17.930Z",
+        "__v": 0
+      }
+    ],
+    "notifications": [
+      {
+        "_id": "699d870caaa87612b20a1d1f",
+        "user": "699b811afac3a6d42406f732",
+        "type": "request",
+        "title": "Request Approved",
+        "message": "Your service request \"Website Development\" has been approved. A project has been created.",
+        "data": {
+          "requestId": "699b811afac3a6d42406f738",
+          "projectId": "699d870caaa87612b20a1d1d"
+        },
+        "read": false,
+        "createdAt": "2026-02-24T11:10:04.646Z",
+        "updatedAt": "2026-02-24T11:10:04.646Z",
+        "__v": 0
+      },
+      {
+        "_id": "699d8e99b8a91dcbab4a4724",
+        "user": "699b811afac3a6d42406f730",
+        "type": "request",
+        "title": "New Service Request",
+        "message": "A new service request \"web\" has been submitted.",
+        "data": {
+          "requestId": "699d8e99b8a91dcbab4a4721"
+        },
+        "read": false,
+        "createdAt": "2026-02-24T11:42:17.988Z",
+        "updatedAt": "2026-02-24T11:42:17.988Z",
+        "__v": 0
+      }
+    ],
+    "messages": [
+      {
+        "_id": "699d866daaa87612b20a1cbb",
+        "sender": "699b811afac3a6d42406f732",
+        "receiver": "699b811afac3a6d42406f730",
+        "content": "hi sir",
+        "read": false,
+        "attachments": [],
+        "isDeleted": false,
+        "createdAt": "2026-02-24T11:07:25.161Z",
+        "updatedAt": "2026-02-24T11:07:25.161Z",
+        "__v": 0
+      },
+      {
+        "_id": "699d8674aaa87612b20a1cc5",
+        "sender": "699b811afac3a6d42406f732",
+        "receiver": "699b811afac3a6d42406f731",
+        "content": "hhj",
+        "read": false,
+        "attachments": [],
+        "isDeleted": false,
+        "createdAt": "2026-02-24T11:07:32.556Z",
+        "updatedAt": "2026-02-24T11:07:32.556Z",
+        "__v": 0
+      },
+      {
+        "_id": "699d873aaaa87612b20a1d34",
+        "sender": "699b811afac3a6d42406f730",
+        "receiver": "699b811afac3a6d42406f732",
+        "content": "m,",
+        "read": false,
+        "attachments": [],
+        "isDeleted": false,
+        "createdAt": "2026-02-24T11:10:50.375Z",
+        "updatedAt": "2026-02-24T11:10:50.375Z",
+        "__v": 0
+      },
+      {
+        "_id": "699d8cedb8a91dcbab4a46e7",
+        "sender": "699d8c02b8a91dcbab4a469e",
+        "receiver": "699d8c53b8a91dcbab4a46a6",
+        "content": "welcome alok",
+        "read": false,
+        "attachments": [],
+        "isDeleted": false,
+        "createdAt": "2026-02-24T11:35:09.075Z",
+        "updatedAt": "2026-02-24T11:35:09.075Z",
+        "__v": 0
+      },
+      {
+        "_id": "699d99f3b8a91dcbab4a4815",
+        "sender": "699b811afac3a6d42406f730",
+        "receiver": "699b811afac3a6d42406f731",
+        "content": "bnb",
+        "read": false,
+        "attachments": [],
+        "isDeleted": false,
+        "createdAt": "2026-02-24T12:30:43.949Z",
+        "updatedAt": "2026-02-24T12:30:43.949Z",
+        "__v": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+[
+  {
+    "_id": "699d870caaa87612b20a1d1f",
+    "user": "699b811afac3a6d42406f732",
+    "type": "request",
+    "title": "Request Approved",
+    "message": "Your service request \"Website Development\" has been approved. A project has been created.",
+    "data": {
+      "requestId": "699b811afac3a6d42406f738",
+      "projectId": "699d870caaa87612b20a1d1d"
+    },
+    "read": false,
+    "createdAt": "2026-02-24T11:10:04.646Z",
+    "updatedAt": "2026-02-24T11:10:04.646Z",
+    "__v": 0
+  },
+  {
+    "_id": "699d8e99b8a91dcbab4a4724",
+    "user": "699b811afac3a6d42406f730",
+    "type": "request",
+    "title": "New Service Request",
+    "message": "A new service request \"web\" has been submitted.",
+    "data": {
+      "requestId": "699d8e99b8a91dcbab4a4721"
+    },
+    "read": false,
+    "createdAt": "2026-02-24T11:42:17.988Z",
+    "updatedAt": "2026-02-24T11:42:17.988Z",
+    "__v": 0
+  }
+]

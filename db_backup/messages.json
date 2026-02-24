@@ -1,0 +1,62 @@
+[
+  {
+    "_id": "699d866daaa87612b20a1cbb",
+    "sender": "699b811afac3a6d42406f732",
+    "receiver": "699b811afac3a6d42406f730",
+    "content": "hi sir",
+    "read": false,
+    "attachments": [],
+    "isDeleted": false,
+    "createdAt": "2026-02-24T11:07:25.161Z",
+    "updatedAt": "2026-02-24T11:07:25.161Z",
+    "__v": 0
+  },
+  {
+    "_id": "699d8674aaa87612b20a1cc5",
+    "sender": "699b811afac3a6d42406f732",
+    "receiver": "699b811afac3a6d42406f731",
+    "content": "hhj",
+    "read": false,
+    "attachments": [],
+    "isDeleted": false,
+    "createdAt": "2026-02-24T11:07:32.556Z",
+    "updatedAt": "2026-02-24T11:07:32.556Z",
+    "__v": 0
+  },
+  {
+    "_id": "699d873aaaa87612b20a1d34",
+    "sender": "699b811afac3a6d42406f730",
+    "receiver": "699b811afac3a6d42406f732",
+    "content": "m,",
+    "read": false,
+    "attachments": [],
+    "isDeleted": false,
+    "createdAt": "2026-02-24T11:10:50.375Z",
+    "updatedAt": "2026-02-24T11:10:50.375Z",
+    "__v": 0
+  },
+  {
+    "_id": "699d8cedb8a91dcbab4a46e7",
+    "sender": "699d8c02b8a91dcbab4a469e",
+    "receiver": "699d8c53b8a91dcbab4a46a6",
+    "content": "welcome alok",
+    "read": false,
+    "attachments": [],
+    "isDeleted": false,
+    "createdAt": "2026-02-24T11:35:09.075Z",
+    "updatedAt": "2026-02-24T11:35:09.075Z",
+    "__v": 0
+  },
+  {
+    "_id": "699d99f3b8a91dcbab4a4815",
+    "sender": "699b811afac3a6d42406f730",
+    "receiver": "699b811afac3a6d42406f731",
+    "content": "bnb",
+    "read": false,
+    "attachments": [],
+    "isDeleted": false,
+    "createdAt": "2026-02-24T12:30:43.949Z",
+    "updatedAt": "2026-02-24T12:30:43.949Z",
+    "__v": 0
+  }
+]

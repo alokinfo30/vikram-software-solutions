@@ -1,0 +1,90 @@
+[
+  {
+    "_id": "699b811afac3a6d42406f73c",
+    "name": "Corporate Website Redesign",
+    "description": "Complete redesign of corporate website with modern UI/UX",
+    "client": "699b811afac3a6d42406f732",
+    "assignedEmployees": [
+      "699b811afac3a6d42406f731"
+    ],
+    "status": "in-progress",
+    "serviceType": "Web Development",
+    "startDate": "2026-02-22T22:20:10.296Z",
+    "priority": "high",
+    "attachments": [],
+    "createdDate": "2026-02-22T22:20:10.312Z",
+    "updatedAt": "2026-02-24T12:28:56.993Z",
+    "__v": 0,
+    "createdAt": "2026-02-22T22:20:10.317Z",
+    "endDate": "2026-02-24T12:28:52.935Z"
+  },
+  {
+    "_id": "699b811afac3a6d42406f73d",
+    "name": "Inventory Management App",
+    "description": "Mobile app for inventory tracking",
+    "client": "699b811afac3a6d42406f734",
+    "assignedEmployees": [
+      "699b811afac3a6d42406f733"
+    ],
+    "status": "pending",
+    "serviceType": "Mobile App Development",
+    "priority": "medium",
+    "attachments": [],
+    "createdDate": "2026-02-22T22:20:10.313Z",
+    "updatedAt": "2026-02-22T22:20:10.313Z",
+    "__v": 0,
+    "createdAt": "2026-02-22T22:20:10.318Z"
+  },
+  {
+    "_id": "699b811afac3a6d42406f73e",
+    "name": "Database Optimization",
+    "description": "Optimize database queries and indexing",
+    "client": "699b811afac3a6d42406f736",
+    "assignedEmployees": [
+      "699b811afac3a6d42406f735"
+    ],
+    "status": "completed",
+    "serviceType": "Database Management",
+    "endDate": "2026-02-22T22:20:10.296Z",
+    "priority": "high",
+    "attachments": [],
+    "createdDate": "2026-02-22T22:20:10.314Z",
+    "updatedAt": "2026-02-22T22:20:10.314Z",
+    "__v": 0,
+    "createdAt": "2026-02-22T22:20:10.318Z"
+  },
+  {
+    "_id": "699b811afac3a6d42406f73f",
+    "name": "E-commerce Mobile App",
+    "description": "Native mobile app for iOS and Android app",
+    "client": "699b811afac3a6d42406f732",
+    "assignedEmployees": [
+      "699b811afac3a6d42406f731"
+    ],
+    "status": "in-progress",
+    "serviceType": "Mobile App Development",
+    "priority": "medium",
+    "attachments": [],
+    "createdDate": "2026-02-22T22:20:10.315Z",
+    "updatedAt": "2026-02-24T12:29:01.335Z",
+    "__v": 0,
+    "createdAt": "2026-02-22T22:20:10.318Z",
+    "startDate": "2026-02-24T08:51:04.506Z",
+    "endDate": "2026-02-24T10:41:40.658Z"
+  },
+  {
+    "_id": "699d870caaa87612b20a1d1d",
+    "name": "Website Development",
+    "description": "Need a modern responsive website for our company",
+    "client": "699b811afac3a6d42406f732",
+    "assignedEmployees": [],
+    "status": "pending",
+    "serviceType": "Website Development",
+    "priority": "medium",
+    "createdDate": "2026-02-24T11:10:04.636Z",
+    "attachments": [],
+    "updatedAt": "2026-02-24T11:10:04.638Z",
+    "createdAt": "2026-02-24T11:10:04.638Z",
+    "__v": 0
+  }
+]
