@@ -102,8 +102,7 @@ app.use('/api/service-requests', serviceRequestRoutes);
 
 // Serve static assets in production
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(path.resolve(), '../client/build')));
-  
+app.use(express.static(path.join(__dirname, '..', 'client', 'build')));  
   // The "catch-all" handler for any request that doesn't match an API route
   app.get('*any', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'));
