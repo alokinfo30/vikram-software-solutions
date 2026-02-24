@@ -80,9 +80,8 @@ const projectSchema = new mongoose.Schema({
 });
 
 // Update timestamps on save
-projectSchema.pre('save', function(next) {
+projectSchema.pre('save', function() {
   this.updatedAt = Date.now();
-  next();
 });
 
 // Virtual for project duration
