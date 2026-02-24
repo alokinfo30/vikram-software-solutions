@@ -4,8 +4,8 @@
   "description": "Full-stack software company management portal",
   "main": "index.js",
   "scripts": {
-    "start": "node server/server.js",
-    "server": "nodemon server/server.js",
+    "start": "node server/index.js",
+    "server": "nodemon server/index.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "seed": "node server/seeders/seed.js",

@@ -2,11 +2,11 @@
   "name": "vikram-software-server",
   "version": "1.0.0",
   "description": "Backend for Vikram Software Solutions",
-  "main": "server.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon --no-deprecation server.js",
+    "start": "node index.js",
+    "dev": "nodemon --no-deprecation index.js",
     "seed": "node --no-deprecation seeders/seed.js",
     "test-db": "node test-local-db.js",
     "reset-db": "node -e \"require('mongoose').connect(process.env.MONGODB_URI).then(() => require('mongoose').connection.db.dropDatabase()).then(() => console.log('Database dropped')).catch(console.error)\""
