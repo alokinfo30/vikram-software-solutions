@@ -1,0 +1,159 @@
+# Server .gitignore
+# This file should be placed in the /server directory
+
+# Dependencies
+node_modules/
+package-lock.json
+
+# Environment files
+.env
+.env.local
+.env.production
+.env.development
+
+# Local Database Data (The cause of your error)
+server/mongodb/data/
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+access.log
+error.log
+combined.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+*.mongodb
+/data/
+/database/
+*.rdb
+*.aof
+dump.rdb
+
+# Uploads
+uploads/
+public/uploads/
+temp-uploads/
+tmp-uploads/
+*.upload
+*.tmp
+
+# Certificates and keys
+*.pem
+*.key
+*.crt
+*.csr
+cert/
+certs/
+ssl/
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Build outputs
+dist/
+build/
+out/
+
+# PM2
+pm2-*.log
+pm2-*.pid
+.pm2/
+
+# Docker
+.dockerignore
+Dockerfile
+docker-compose.yml
+docker-compose.*.yml
+
+# Kubernetes
+*.kubeconfig
+kube-config.yaml
+helm/
+charts/
+
+# Backup files
+*.bak
+*.backup
+*.old
+*.orig
+
+# Session files
+sessions/
+tmp/
+
+# Debug files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.lock-wscript
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# Serverless
+.serverless/
+
+# Webpack
+webpack-stats.json
+webpack-stats-*.json
+
+# GraphQL
+.graphqlconfig
+.graphqlconfig.yaml
+
+# API documentation
+apidoc/
+doc/
+docs/
+
+# Redis
+dump.rdb
+redis.conf
+
+# MongoDB
+mongod.conf
+mongod.log
+/data/db/
+
+# PostgreSQL
+postgresql.conf
+pg_log/
+pg_stat/
+pg_stat_tmp/
+pg_wal/
+pg_xlog/
+postmaster.pid
+postmaster.opts
+
+# MySQL
+*.ibd
+*.frm
+*.MYD
+*.MYI
+*.opt
+ibdata1
+ib_logfile0
+ib_logfile1
+mysql-bin.*
+binlog.*
