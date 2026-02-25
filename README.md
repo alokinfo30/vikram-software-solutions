@@ -951,3 +951,138 @@ Type: require('crypto').randomBytes(64).toString('hex')
 Copy the long string it generates and paste it for JWT_SECRET.
 
 Repeat the process to get a different long string for JWT_REFRESH_SECRET
+
+EMAIL_PASS: Do not use your login password. You must go to your Google Account > Security > 2-Step Verification > App Passwords. Generate one for "Mail" and paste that 16-character code here.
+
+Step 1: Enable 2-Step Verification
+Google will not allow you to create an App Password unless your account is secured with 2-Step Verification.
+
+Go to your Google Account Settings.
+
+On the left menu, click Security.
+
+Under the "How you sign in to Google" section, make sure 2-Step Verification is turned ON.
+
+If it’s OFF, follow the prompts to set it up using your phone number.
+
+Step 2: Access the App Passwords Menu
+Once 2-Step Verification is active, click the small arrow > next to "2-Step Verification."
+
+Scroll all the way to the bottom of the page.
+
+Click on App passwords.
+
+Step 3: Generate the Code
+In the "App name" box, type a name so you remember what it's for (e.g., Vikram Software Solutions Server).
+
+Click Create.
+
+A small window will pop up showing a 16-character code inside a yellow box (e.g., abcd efgh ijkl mnop).
+
+Step 4: Update your .env
+Copy the code (exclude the spaces; it should be 16 characters total).
+
+Open your server/.env file.
+
+Paste it next to EMAIL_PASS:
+
+
+1. Check if MongoDB is actually running
+If you are using a local database, the service might be stopped.
+
+Windows: Press Win + R, type services.msc, find MongoDB Server, and make sure it says "Running."
+
+Shortcut: Open MongoDB Compass. If Compass cannot connect to mongodb://localhost:27017, your backend won't be able to either.
+
+Verify the Connection with Compass
+Open MongoDB Compass (it should have installed in Step 1).
+
+In the "New Connection" screen, you will see a URI like mongodb://localhost:27017.
+
+Click Connect.
+
+If it connects successfully, your local database is ready for your project.
+
+Adding MongoDB to your PATH (If "not recognized")
+If you get an error saying "'mongosh' is not recognized," you need to tell Windows where the program is located:
+
+Search for "Edit the system environment variables" in your Windows search bar and open it.
+
+Click the Environment Variables button at the bottom.
+
+In the "System variables" section, find the variable named Path, select it, and click Edit.
+
+Click New and paste the path to your MongoDB bin folder. Based on your installer screen, this is usually:
+
+C:\Program Files\MongoDB\Server\8.2\bin
+
+ParameterWhy keep it?maxPoolSizePrevents your server from opening too many connections to MongoDB, which is vital if your portal scales to many Employees and Clients.minPoolSizeEnsures a few connections are always "warm," making the initial request after a period of inactivity much faster.socketTimeoutMSPrevents "hanging" requests. If a database query (like fetching 100+ project logs) takes too long, it will safely time out after 45 seconds.connectTimeoutMSSpecifically handles how long the driver waits to establish the initial connection—helpful for avoiding the long buffering delays you saw earlier.
+
+If you want to test the connection immediately via the terminal without modifying your file structure, run this in your server directory:
+
+Bash
+node -e "import 'dotenv/config'; import mongoose from 'mongoose'; mongoose.connect(process.env.MONGODB_URI).then(() => { console.log('✅ Connection Successful!'); process.exit(0); }).catch(err => { console.error('❌ Error:', err.message); process.exit(1); });" --input-type=module
+
+Here are the best alternative ways to upload your db_backup files:
+
+1. Use MongoDB Compass (Easiest)
+Since you already have Compass installed (it's in your taskbar), use its built-in Import Wizard:
+
+Connect to Atlas: Open Compass and paste your connection string: mongodb+srv://vikram:vikram123@cluster0.itiqm7f.mongodb.net/.
+
+Create Database/Collection: Once connected, create a database named vikram_software and a collection (e.g., users).
+
+Click "Add Data": Inside the collection, click the Add Data button and select Import JSON or CSV file.
+
+Select File: Choose users.json from your db_backup folder and click Import.
+
+Repeat: Do this for projects.json, servicerequests.json, and any others.
+
+2. Use the Atlas "Data Explorer" (Web-Based)
+You can do this entirely in your browser without any local tools:
+
+Go to your MongoDB Atlas Dashboard and click Data Explorer on the left sidebar.
+
+Click Create Database and name it vikram_software.
+
+Enter a collection name (e.g., projects).
+
+Once the collection is created, click the Insert Document button.
+
+Pro Tip: You can copy the contents of your projects.json file from VS Code and paste the array directly into the Atlas insert window.
+
+3. Re-run your seed.js script (Automated)
+Since you have a robust seeding script, you can simply point it at Atlas instead of your local machine.
+
+Update your .env file: Change your MONGODB_URI to your Atlas string: mongodb+srv://vikram:vikram123@cluster0.itiqm7f.mongodb.net/vikram_software.
+
+Run the script: In your VS Code terminal, run:
+
+PowerShell
+node server/seed.js
+Result: This will automatically populate your Atlas cluster with the 5 users, 4 projects, and 3 service requests defined in your code.
+
+To allow Render to talk to Atlas, you must allow access from "anywhere" (secured by your username and password).
+
+Login to MongoDB Atlas.
+
+In the left-hand sidebar, under the Security section, click Network Access.
+
+Click the Add IP Address button.
+
+Click the button that says Allow Access From Anywhere.
+
+This will automatically fill in 0.0.0.0/0.
+
+Set the Entry Comment to Render Backend.
+
+Click Confirm.
+
+Check the Logs
+After Atlas finishes "Active" (usually takes 30-60 seconds to update the network), go back to your Render Dashboard:
+
+Click Manual Deploy > Clear Cache & Deploy.
+
+Watch the logs.
+
+You should now see your success message: MongoDB Connected....
