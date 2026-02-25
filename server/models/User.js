@@ -30,8 +30,16 @@ const userSchema = new mongoose.Schema({
     required: [function() {
       return this.isNew;
     }, 'Password is required'],
-    minlength: [6, 'Password must be at least 6 characters'],
-    select: false
+validate: {
+      validator: function(v) {
+        // If it's an update and the password is empty/null, it's valid (skip)
+        if (!this.isNew && !v) return true;
+        // Otherwise, it must be at least 6 characters
+        return v && v.length >= 6;
+      },
+      message: 'Password must be at least 6 characters'
+    },
+        select: false
   },
   role: {
     type: String,

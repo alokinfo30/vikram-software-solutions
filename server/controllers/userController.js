@@ -127,6 +127,11 @@ export const updateUser = async (req, res) => {
       delete req.body.isActive;
     }
 
+    // Remove empty password strings to avoid hashing empty password
+    if (req.body.password === '') {
+      delete req.body.password;
+    }
+
     const user = await User.findByIdAndUpdate(
       req.params.id,
       { ...req.body, updatedAt: Date.now() },
