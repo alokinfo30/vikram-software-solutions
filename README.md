@@ -937,3 +937,17 @@ This tech stack provides a modern, scalable, and maintainable application archit
 
 
 The Gold Rule for Vite.jsx: Use this for any file that contains HTML-like tags (e.g., <div>, <Component />). Vite requires the .jsx extension to trigger the transformation process. If you put JSX code inside a .js file, Vite will throw a "Failed to parse source" error..js: Use this for files that contain only logic (e.g., utility functions, API services, Redux slices, or constants) and no HTML-like tags.Updated Folder Structure StrategyBased on your mkdir command, here is how you should name your files within those folders:FolderRecommended ExtensionExample Filesrc/components.jsxButton.jsx, Navbar.jsxsrc/pages.jsxHome.jsx, Dashboard.jsxsrc/store.jsuserSlice.js, index.jssrc/utils.jsformatDate.js, validators.jssrc/services.jsapi.js, authService.js
+
+
+JWT Secrets (The "Keys to the Kingdom")
+These are used to sign the tokens that keep users logged in. They can be any random string.
+
+Open your terminal.
+
+Type node and press Enter.
+
+Type: require('crypto').randomBytes(64).toString('hex')
+
+Copy the long string it generates and paste it for JWT_SECRET.
+
+Repeat the process to get a different long string for JWT_REFRESH_SECRET
