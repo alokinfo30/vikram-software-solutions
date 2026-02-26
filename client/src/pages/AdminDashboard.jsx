@@ -13,6 +13,7 @@ const AdminDashboard = () => {
     pendingRequests: 0,
     totalMessages: 0
   });
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(() => {
     const fetchStats = async () => {
@@ -55,6 +56,8 @@ const AdminDashboard = () => {
           localStorage.removeItem('user');
           window.location.href = '/login';
         }}
+        isOpen={sidebarOpen}
+        onToggle={() => setSidebarOpen(!sidebarOpen)}
       />
 
       {/* Main Content */}
@@ -67,14 +70,10 @@ const AdminDashboard = () => {
 
 export const AdminHome = () => {
   // Get stats from Outlet context
-  const [stats, setStats] = useState({
-    totalUsers: 0,
-    totalProjects: 0,
-    pendingRequests: 0,
-    totalMessages: 0
-  });
-
-  useEffect(() => {
+  const { stats } = React.useContext?.({}) || { stats: { totalUsers: 0, totalProjects: 0, pendingRequests: 0, totalMessages: 0 } };
+  const [localStats, setLocalStats] = React.useState({ totalUsers: 0, totalProjects: 0, pendingRequests: 0, totalMessages: 0 });
+  
+  React.useEffect(() => {
     const fetchStats = async () => {
       try {
         const [usersRes, projectsRes, requestsRes] = await Promise.all([
@@ -85,7 +84,7 @@ export const AdminHome = () => {
         const users = usersRes.data?.data ?? [];
         const projectStats = projectsRes.data?.data ?? {};
         const requests = requestsRes.data?.data ?? [];
-        setStats({
+        setLocalStats({
           totalUsers: usersRes.data?.count ?? users.length,
           totalProjects: projectStats.total ?? 0,
           pendingRequests: requests.filter(r => r.status === 'pending').length,
@@ -98,37 +97,39 @@ export const AdminHome = () => {
     fetchStats();
   }, []);
 
+  const displayStats = localStats.totalUsers > 0 ? localStats : stats?.totalUsers > 0 ? stats : localStats;
+
   return (
     <div className="space-y-8">
-      <h1 className="text-3xl font-bold text-white mb-2 text-center">Dashboard</h1>
+      <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-center">Dashboard</h1>
       <p className="text-gray-300 mb-8 text-center">Overview of your admin portal</p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div className="bg-gray-700 p-6 rounded-xl shadow hover:shadow-md transition-shadow">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div className="bg-gray-700 p-4 sm:p-6 rounded-xl shadow hover:shadow-md transition-shadow">
           <h3 className="text-gray-300 text-sm font-semibold uppercase tracking-wide">Total Users</h3>
-          <p className="text-3xl font-bold text-white mt-1">{stats.totalUsers}</p>
+          <p className="text-2xl sm:text-3xl font-bold text-white mt-1">{displayStats.totalUsers}</p>
           <p className="text-xs text-gray-400 mt-1">Manage in Manage Users</p>
         </div>
-        <div className="bg-gray-700 p-6 rounded-xl shadow hover:shadow-md transition-shadow">
+        <div className="bg-gray-700 p-4 sm:p-6 rounded-xl shadow hover:shadow-md transition-shadow">
           <h3 className="text-gray-300 text-sm font-semibold uppercase tracking-wide">Projects</h3>
-          <p className="text-3xl font-bold text-white mt-1">{stats.totalProjects}</p>
+          <p className="text-2xl sm:text-3xl font-bold text-white mt-1">{displayStats.totalProjects}</p>
           <p className="text-xs text-gray-400 mt-1">View in Projects</p>
         </div>
-        <div className="bg-gray-700 p-6 rounded-xl shadow hover:shadow-md transition-shadow">
+        <div className="bg-gray-700 p-4 sm:p-6 rounded-xl shadow hover:shadow-md transition-shadow">
           <h3 className="text-gray-300 text-sm font-semibold uppercase tracking-wide">Pending Requests</h3>
-          <p className="text-3xl font-bold text-amber-400 mt-1">{stats.pendingRequests}</p>
+          <p className="text-2xl sm:text-3xl font-bold text-amber-400 mt-1">{displayStats.pendingRequests}</p>
           <p className="text-xs text-gray-400 mt-1">Review in Service Requests</p>
         </div>
-        <div className="bg-gray-700 p-6 rounded-xl shadow hover:shadow-md transition-shadow">
+        <div className="bg-gray-700 p-4 sm:p-6 rounded-xl shadow hover:shadow-md transition-shadow">
           <h3 className="text-gray-300 text-sm font-semibold uppercase tracking-wide">Messages</h3>
-          <p className="text-3xl font-bold text-white mt-1">{stats.totalMessages}</p>
+          <p className="text-2xl sm:text-3xl font-bold text-white mt-1">{displayStats.totalMessages}</p>
           <p className="text-xs text-gray-400 mt-1">View in Messages</p>
         </div>
       </div>
 
-      <div className="mt-8 bg-gray-700 p-6 rounded-xl shadow">
-        <h2 className="text-xl font-bold text-white mb-4">Quick navigation</h2>
-        <p className="text-gray-300">
+      <div className="mt-6 sm:mt-8 bg-gray-700 p-4 sm:p-6 rounded-xl shadow">
+        <h2 className="text-lg sm:text-xl font-bold text-white mb-4">Quick navigation</h2>
+        <p className="text-gray-300 text-sm sm:text-base">
           Use the sidebar to open <strong className="text-white">Manage Users</strong>, <strong className="text-white">Projects</strong>, <strong className="text-white">Service Requests</strong>, and <strong className="text-white">Messages</strong>.
         </p>
       </div>

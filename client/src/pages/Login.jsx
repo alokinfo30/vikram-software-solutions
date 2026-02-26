@@ -243,7 +243,7 @@ const Login = () => {
 
         {/* Footer */}
         <p className="text-center mt-8 text-sm text-blue-900">
-          © 2024 Vikram Software Solutions. All rights reserved.
+          © {new Date().getFullYear()} Vikram Software Solutions. All rights reserved.
         </p>
       </div>
 

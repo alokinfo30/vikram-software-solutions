@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { FaUser, FaEnvelope, FaBuilding, FaLock } from 'react-icons/fa';
+import { FaUser } from 'react-icons/fa';
 
 const Profile = () => {
   const [user, setUser] = useState(null);
@@ -115,23 +115,23 @@ const Profile = () => {
   // If user is still null, show error
   if (!user) {
     return (
-      <div className="flex justify-center items-center h-64">
+      <div className="flex justify-center items-center h-64 p-4">
         <p className="text-white">Unable to load profile data</p>
       </div>
     );
   }
 
   return (
-    <div className="max-w-3xl mx-auto p-6">
+    <div className="max-w-3xl mx-auto p-4 sm:p-6">
       <div className="bg-gray-700 rounded-lg shadow-lg overflow-hidden">
         {/* Header */}
-        <div className="bg-gradient-to-r from-blue-500 to-purple-600 px-6 py-8">
+        <div className="bg-gradient-to-r from-blue-500 to-purple-600 px-4 sm:px-6 py-6 sm:py-8">
           <div className="flex items-center">
-            <div className="bg-white rounded-full p-4">
-              <FaUser className="text-4xl text-blue-900" />
+            <div className="bg-white rounded-full p-3 sm:p-4">
+              <FaUser className="text-3xl sm:text-4xl text-blue-900" />
             </div>
-            <div className="ml-6 text-white">
-              <h1 className="text-3xl font-bold">
+            <div className="ml-4 sm:ml-6 text-white">
+              <h1 className="text-2xl sm:text-3xl font-bold">
                 {user.firstName} {user.lastName}
               </h1>
               <p className="text-blue-200 capitalize">{user.role}</p>
@@ -140,11 +140,11 @@ const Profile = () => {
         </div>
 
         {/* Profile Content */}
-        <div className="px-6 py-8">
+        <div className="px-4 sm:px-6 py-6 sm:py-8">
           {!editing ? (
             // View Mode
             <div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-400">First Name</label>
                   <p className="mt-1 text-lg text-white">{user.firstName}</p>
@@ -169,10 +169,10 @@ const Profile = () => {
                 </div>
               </div>
 
-              <div className="mt-8">
+              <div className="mt-6 sm:mt-8">
                 <button
                   onClick={() => setEditing(true)}
-                  className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700"
+                  className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 w-full sm:w-auto"
                 >
                   Edit Profile
                 </button>
@@ -181,7 +181,7 @@ const Profile = () => {
           ) : (
             // Edit Mode
             <form onSubmit={handleSubmit}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-300 mb-2">
                     First Name
@@ -210,7 +210,7 @@ const Profile = () => {
                   />
                 </div>
 
-                <div className="md:col-span-2">
+                <div className="sm:col-span-2">
                   <label className="block text-sm font-medium text-gray-300 mb-2">
                     Email
                   </label>
@@ -225,7 +225,7 @@ const Profile = () => {
                 </div>
 
                 {user.role === 'client' && (
-                  <div className="md:col-span-2">
+                  <div className="sm:col-span-2">
                     <label className="block text-sm font-medium text-gray-300 mb-2">
                       Company Name
                     </label>
@@ -240,10 +240,10 @@ const Profile = () => {
                 )}
 
                 {/* Password Change Section */}
-                <div className="md:col-span-2 border-t border-gray-600 pt-6 mt-4">
+                <div className="sm:col-span-2 border-t border-gray-600 pt-6 mt-4">
                   <h3 className="text-lg font-medium mb-4 text-white">Change Password</h3>
                   
-                  <div className="grid grid-cols-1 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-gray-300 mb-2">
                         Current Password
@@ -272,7 +272,7 @@ const Profile = () => {
 
                     <div>
                       <label className="block text-sm font-medium text-gray-300 mb-2">
-                        Confirm New Password
+                        Confirm Password
                       </label>
                       <input
                         type="password"
@@ -286,17 +286,17 @@ const Profile = () => {
                 </div>
               </div>
 
-              <div className="mt-8 flex space-x-4">
+              <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
                 <button
                   type="submit"
-                  className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700"
+                  className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 w-full sm:w-auto"
                 >
                   Save Changes
                 </button>
                 <button
                   type="button"
                   onClick={() => setEditing(false)}
-                  className="bg-gray-500 text-white px-6 py-2 rounded-lg hover:bg-gray-400"
+                  className="bg-gray-500 text-white px-6 py-2 rounded-lg hover:bg-gray-400 w-full sm:w-auto"
                 >
                   Cancel
                 </button>

@@ -8,6 +8,7 @@ const Messages = () => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
   const [users, setUsers] = useState([]);
+  const [showUserList, setShowUserList] = useState(true);
   const messagesEndRef = useRef(null);
 
   useEffect(() => {
@@ -100,17 +101,20 @@ const Messages = () => {
   };
 
   return (
-    <div className="flex h-[calc(100vh-200px)] bg-gray-700 rounded-lg shadow">
-      {/* Users List */}
-      <div className="w-1/3 border-r border-gray-600">
+    <div className="flex flex-col lg:flex-row h-[calc(100vh-200px)] bg-gray-700 rounded-lg shadow">
+      {/* Users List - Hidden on mobile when chatting */}
+      <div className={`${showUserList ? 'flex' : 'hidden'} lg:flex w-full lg:w-1/3 border-r border-gray-600 flex-col`}>
         <div className="p-4 border-b border-gray-600">
           <h2 className="font-bold text-white">Conversations</h2>
         </div>
-        <div className="overflow-y-auto h-full">
+        <div className="overflow-y-auto flex-1">
           {Array.isArray(users) && users.map(user => (
             <div
               key={user._id}
-              onClick={() => setSelectedUser(user)}
+              onClick={() => {
+                setSelectedUser(user);
+                setShowUserList(false);
+              }}
               className={`p-4 cursor-pointer hover:bg-gray-600 ${
                 selectedUser?._id === user._id ? 'bg-gray-600' : ''
               }`}
@@ -126,13 +130,19 @@ const Messages = () => {
       </div>
 
       {/* Messages Area */}
-      <div className="flex-1 flex flex-col">
+      <div className={`flex-1 flex flex-col ${!showUserList && selectedUser ? 'flex' : 'hidden'} lg:flex`}>
         {selectedUser ? (
           <>
-            {/* Messages Header */}
-            <div className="p-4 border-b border-gray-600">
+            {/* Messages Header - Back button for mobile */}
+            <div className="p-4 border-b border-gray-600 flex items-center">
+              <button 
+                onClick={() => setShowUserList(true)}
+                className="lg:hidden mr-3 text-white"
+              >
+                ←
+              </button>
               <h3 className="font-bold text-white">
-                Chat with {selectedUser.firstName} {selectedUser.lastName}
+                {selectedUser.firstName} {selectedUser.lastName}
               </h3>
             </div>
 
@@ -148,7 +158,7 @@ const Messages = () => {
                   }`}
                 >
                   <div
-                    className={`max-w-xs p-3 rounded-lg ${
+                    className={`max-w-xs sm:max-w-sm p-3 rounded-lg ${
                       message.sender?._id === selectedUser._id
                         ? 'bg-gray-600 text-white'
                         : 'bg-blue-600 text-white'
@@ -184,7 +194,7 @@ const Messages = () => {
             </form>
           </>
         ) : (
-          <div className="flex items-center justify-center h-full text-gray-400">
+          <div className="flex items-center justify-center h-full text-gray-400 p-4 text-center">
             Select a user to start messaging
           </div>
         )}

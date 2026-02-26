@@ -112,15 +112,15 @@ const ManageUsers = () => {
   };
 
   return (
-    <div className="p-6">
-      <div className="flex justify-between items-center mb-6">
+    <div className="p-4 sm:p-6">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
         <h1 className="text-2xl font-bold text-white">Manage Users</h1>
         <button
           onClick={() => {
             resetForm();
             setShowModal(true);
           }}
-          className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 flex items-center"
+          className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 flex items-center w-full sm:w-auto justify-center"
         >
           <FaUserPlus className="mr-2" /> Add User
         </button>
@@ -135,25 +135,25 @@ const ManageUsers = () => {
           <p className="text-gray-300">No users found.</p>
         </div>
       ) : (
-        <div className="bg-gray-700 rounded-lg shadow overflow-hidden">
+        <div className="bg-gray-700 rounded-lg shadow overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-600">
             <thead className="bg-gray-600">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-200 uppercase tracking-wider">Name</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-200 uppercase tracking-wider">Email</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-200 uppercase tracking-wider">Role</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-200 uppercase tracking-wider">Company</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-200 uppercase tracking-wider">Actions</th>
+                <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-200 uppercase tracking-wider">Name</th>
+                <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-200 uppercase tracking-wider hidden md:table-cell">Email</th>
+                <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-200 uppercase tracking-wider">Role</th>
+                <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-200 uppercase tracking-wider hidden lg:table-cell">Company</th>
+                <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-200 uppercase tracking-wider">Actions</th>
               </tr>
             </thead>
             <tbody className="bg-gray-700 divide-y divide-gray-600">
               {users.map((user) => (
                 <tr key={user._id} className="hover:bg-gray-600">
-                  <td className="px-6 py-4 whitespace-nowrap text-white">
+                  <td className="px-4 sm:px-6 py-4 whitespace-nowrap text-white">
                     {user.firstName} {user.lastName}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-gray-300">{user.email}</td>
-                  <td className="px-6 py-4 whitespace-nowrap">
+                  <td className="px-4 sm:px-6 py-4 whitespace-nowrap text-gray-300 hidden md:table-cell">{user.email}</td>
+                  <td className="px-4 sm:px-6 py-4 whitespace-nowrap">
                     <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
                       ${user.role === 'admin' ? 'bg-purple-600 text-white' : 
                         user.role === 'employee' ? 'bg-green-600 text-white' : 
@@ -161,8 +161,8 @@ const ManageUsers = () => {
                       {user.role}
                     </span>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-gray-300">{user.companyName || '-'}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                  <td className="px-4 sm:px-6 py-4 whitespace-nowrap text-gray-300 hidden lg:table-cell">{user.companyName || '-'}</td>
+                  <td className="px-4 sm:px-6 py-4 whitespace-nowrap text-sm font-medium">
                     <button
                       onClick={() => handleEdit(user)}
                       className="text-indigo-400 hover:text-indigo-200 mr-3"
@@ -188,13 +188,13 @@ const ManageUsers = () => {
       {/* User Modal */}
       {showModal && (
         <div className="fixed inset-0 bg-gray-600/80 overflow-y-auto h-full w-full z-50">
-          <div className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-gray-700">
+          <div className="relative top-20 mx-auto p-4 sm:p-5 border w-full sm:w-96 shadow-lg rounded-md bg-gray-700">
             <h3 className="text-lg font-medium leading-6 text-white mb-4">
               {editingUser ? 'Edit User' : 'Add New User'}
             </h3>
             
-            <form onSubmit={handleSubmit}>
-              <div className="mb-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
                 <label className="block text-gray-300 text-sm font-bold mb-2">First Name</label>
                 <input
                   type="text"
@@ -206,7 +206,7 @@ const ManageUsers = () => {
                 />
               </div>
 
-              <div className="mb-4">
+              <div>
                 <label className="block text-gray-300 text-sm font-bold mb-2">Last Name</label>
                 <input
                   type="text"
@@ -218,7 +218,7 @@ const ManageUsers = () => {
                 />
               </div>
 
-              <div className="mb-4">
+              <div>
                 <label className="block text-gray-300 text-sm font-bold mb-2">Email</label>
                 <input
                   type="email"
@@ -231,7 +231,7 @@ const ManageUsers = () => {
               </div>
 
               {!editingUser && (
-                <div className="mb-4">
+                <div>
                   <label className="block text-gray-300 text-sm font-bold mb-2">Password</label>
                   <input
                     type="password"
@@ -244,7 +244,7 @@ const ManageUsers = () => {
                 </div>
               )}
 
-              <div className="mb-4">
+              <div>
                 <label className="block text-gray-300 text-sm font-bold mb-2">Role</label>
                 <select
                   name="role"
@@ -258,7 +258,7 @@ const ManageUsers = () => {
               </div>
 
               {formData.role === 'client' && (
-                <div className="mb-4">
+                <div>
                   <label className="block text-gray-300 text-sm font-bold mb-2">Company Name</label>
                   <input
                     type="text"
@@ -271,17 +271,17 @@ const ManageUsers = () => {
                 </div>
               )}
 
-              <div className="flex justify-end space-x-3">
+              <div className="flex flex-col sm:flex-row justify-end space-y-2 sm:space-y-0 sm:space-x-3 pt-2">
                 <button
                   type="button"
                   onClick={() => setShowModal(false)}
-                  className="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-400"
+                  className="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-400 w-full sm:w-auto"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+                  className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 w-full sm:w-auto"
                 >
                   {editingUser ? 'Update' : 'Create'}
                 </button>

@@ -1,4 +1,4 @@
- // client/src/components/Modal.jsx
+// client/src/components/Modal.jsx
 import React, { useEffect } from 'react';
 import { FaTimes } from 'react-icons/fa';
 
@@ -42,7 +42,7 @@ const Modal = ({ isOpen, onClose, title, children, size = 'md' }) => {
         <span className="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
 
         <div className={`inline-block align-bottom bg-gray-700 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle ${sizeClasses[size]} w-full`}>
-          <div className="bg-gray-700 px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+          <div className="bg-gray-700 px-4 pt-5 pb-4 sm:p-6 sm:pb-4 max-h-[80vh] overflow-y-auto">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-lg font-medium text-white">{title}</h3>
               <button

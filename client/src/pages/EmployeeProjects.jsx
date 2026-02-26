@@ -51,28 +51,28 @@ const EmployeeProjects = () => {
   }
 
   return (
-    <div className="space-y-6">
-      <h1 className="text-3xl font-bold text-white">My Assigned Projects</h1>
+    <div className="space-y-6 p-4 sm:p-6">
+      <h1 className="text-2xl sm:text-3xl font-bold text-white">My Assigned Projects</h1>
       
       {localProjects.length === 0 ? (
         <div className="bg-gray-700 rounded-lg p-6 text-center">
           <p className="text-gray-300">No projects assigned to you yet.</p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 gap-4">
+        <div className="grid gap-4 sm:gap-6">
           {localProjects.map(project => (
-            <div key={project._id} className="bg-gray-700 rounded-lg p-6 shadow-md">
-              <div className="flex justify-between items-start mb-4">
-                <div>
-                  <h3 className="text-xl font-bold text-white">{project.name}</h3>
+            <div key={project._id} className="bg-gray-700 rounded-lg p-4 sm:p-6 shadow-md">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4 mb-4">
+                <div className="flex-1">
+                  <h3 className="text-lg sm:text-xl font-bold text-white">{project.name}</h3>
                   <p className="text-gray-300 mt-1">{project.description}</p>
                 </div>
-                <span className={`px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(project.status)}`}>
+                <span className={`px-3 py-1 rounded-full text-sm font-medium w-fit ${getStatusColor(project.status)}`}>
                   {project.status}
                 </span>
               </div>
               
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
                 <div>
                   <p className="text-sm text-gray-400">Client</p>
                   <p className="text-white">{project.client?.firstName} {project.client?.lastName}</p>
@@ -95,7 +95,7 @@ const EmployeeProjects = () => {
                 </div>
               </div>
 
-              <div className="mt-4 flex gap-2">
+              <div className="mt-4 flex flex-col sm:flex-row gap-2">
                 <button
                   onClick={() => handleStatusChange(project._id, 'in-progress')}
                   disabled={project.status === 'in-progress'}

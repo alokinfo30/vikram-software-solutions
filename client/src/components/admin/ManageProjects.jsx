@@ -164,15 +164,15 @@ const ManageProjects = () => {
   };
 
   return (
-    <div className="p-6">
-      <div className="flex justify-between items-center mb-6">
+    <div className="p-4 sm:p-6">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
         <h1 className="text-2xl font-bold text-white">Manage Projects</h1>
         <button
           onClick={() => {
             resetForm();
             setShowModal(true);
           }}
-          className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 flex items-center"
+          className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 flex items-center w-full sm:w-auto justify-center"
         >
           <FaPlus className="mr-2" /> Create Project
         </button>
@@ -187,15 +187,22 @@ const ManageProjects = () => {
           <p className="text-gray-400">No projects found</p>
         </div>
       ) : (
-        <div className="grid gap-6">
+        <div className="grid gap-4 sm:gap-6">
           {projects.map((project) => (
-            <div key={project._id} className="bg-gray-700 rounded-lg shadow p-6">
-              <div className="flex justify-between items-start">
-                <div>
-                  <h3 className="text-xl font-bold text-white">{project.name}</h3>
-                  <p className="text-gray-300 mt-1">{project.description}</p>
+            <div key={project._id} className="bg-gray-700 rounded-lg shadow p-4 sm:p-6">
+              <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-4">
+                <div className="flex-1">
+                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2">
+                    <div>
+                      <h3 className="text-lg sm:text-xl font-bold text-white">{project.name}</h3>
+                      <p className="text-gray-300 mt-1">{project.description}</p>
+                    </div>
+                    <span className={`px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full w-fit ${getStatusColor(project.status)}`}>
+                      {project.status}
+                    </span>
+                  </div>
                   
-                  <div className="mt-4 grid grid-cols-2 gap-4">
+                  <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <span className="text-sm text-gray-400">Client:</span>
                       <p className="font-medium text-white">{project.client?.companyName || project.client?.firstName + ' ' + project.client?.lastName}</p>
@@ -209,10 +216,8 @@ const ManageProjects = () => {
                       <p className="font-medium text-white">{formatDate(project.createdDate || project.createdAt)}</p>
                     </div>
                     <div>
-                      <span className="text-sm text-gray-400">Status:</span>
-                      <p className={`mt-1 px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${getStatusColor(project.status)}`}>
-                        {project.status}
-                      </p>
+                      <span className="text-sm text-gray-400">Deadline:</span>
+                      <p className="font-medium text-white">{formatDate(project.deadline)}</p>
                     </div>
                   </div>
 
@@ -231,27 +236,30 @@ const ManageProjects = () => {
                   </div>
                 </div>
 
-                <div className="flex space-x-2">
+                <div className="flex lg:flex-col space-x-2 lg:space-x-0 lg:space-y-2">
                   <button
                     onClick={() => handleAssignEmployees(project)}
-                    className="text-green-400 hover:text-green-200"
+                    className="text-green-400 hover:text-green-200 p-2 flex items-center justify-center"
                     title="Assign Employees"
                   >
                     <FaUserCheck size={18} />
+                    <span className="ml-2 lg:hidden">Assign</span>
                   </button>
                   <button
                     onClick={() => handleEdit(project)}
-                    className="text-indigo-400 hover:text-indigo-200"
+                    className="text-indigo-400 hover:text-indigo-200 p-2 flex items-center justify-center"
                     title="Edit"
                   >
                     <FaEdit size={18} />
+                    <span className="ml-2 lg:hidden">Edit</span>
                   </button>
                   <button
                     onClick={() => handleDelete(project._id)}
-                    className="text-red-400 hover:text-red-200"
+                    className="text-red-400 hover:text-red-200 p-2 flex items-center justify-center"
                     title="Delete"
                   >
                     <FaTrash size={18} />
+                    <span className="ml-2 lg:hidden">Delete</span>
                   </button>
                 </div>
               </div>
@@ -263,13 +271,13 @@ const ManageProjects = () => {
       {/* Project Modal */}
       {showModal && (
         <div className="fixed inset-0 bg-gray-600/80 overflow-y-auto h-full w-full z-50">
-          <div className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-gray-700">
+          <div className="relative top-20 mx-auto p-4 sm:p-5 border w-full sm:w-96 shadow-lg rounded-md bg-gray-700">
             <h3 className="text-lg font-medium leading-6 text-white mb-4">
               {selectedProject ? 'Edit Project' : 'Create New Project'}
             </h3>
             
-            <form onSubmit={handleSubmit}>
-              <div className="mb-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
                 <label className="block text-gray-300 text-sm font-bold mb-2">Project Name</label>
                 <input
                   type="text"
@@ -281,7 +289,7 @@ const ManageProjects = () => {
                 />
               </div>
 
-              <div className="mb-4">
+              <div>
                 <label className="block text-gray-300 text-sm font-bold mb-2">Description</label>
                 <textarea
                   name="description"
@@ -293,7 +301,7 @@ const ManageProjects = () => {
                 />
               </div>
 
-              <div className="mb-4">
+              <div>
                 <label className="block text-gray-300 text-sm font-bold mb-2">Client</label>
                 <select
                   name="client"
@@ -311,7 +319,7 @@ const ManageProjects = () => {
                 </select>
               </div>
 
-              <div className="mb-4">
+              <div>
                 <label className="block text-gray-300 text-sm font-bold mb-2">Service Type</label>
                 <input
                   type="text"
@@ -323,7 +331,7 @@ const ManageProjects = () => {
                 />
               </div>
 
-              <div className="mb-4">
+              <div>
                 <label className="block text-gray-300 text-sm font-bold mb-2">Status</label>
                 <select
                   name="status"
@@ -338,17 +346,17 @@ const ManageProjects = () => {
                 </select>
               </div>
 
-              <div className="flex justify-end space-x-3">
+              <div className="flex flex-col sm:flex-row justify-end space-y-2 sm:space-y-0 sm:space-x-3">
                 <button
                   type="button"
                   onClick={() => setShowModal(false)}
-                  className="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-400"
+                  className="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-400 w-full sm:w-auto"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+                  className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 w-full sm:w-auto"
                 >
                   {selectedProject ? 'Update' : 'Create'}
                 </button>
@@ -361,22 +369,22 @@ const ManageProjects = () => {
       {/* Assign Employees Modal */}
       {showAssignModal && selectedProject && (
         <div className="fixed inset-0 bg-gray-600/80 overflow-y-auto h-full w-full z-50">
-          <div className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-gray-700">
+          <div className="relative top-20 mx-auto p-4 sm:p-5 border w-full sm:w-96 shadow-lg rounded-md bg-gray-700">
             <h3 className="text-lg font-medium leading-6 text-white mb-4">
               Assign Employees to {selectedProject.name}
             </h3>
             
-            <div className="max-h-96 overflow-y-auto">
+            <div className="max-h-60 sm:max-h-96 overflow-y-auto">
               {users.filter(u => u.role === 'employee').map(employee => (
                 <div key={employee._id} className="flex items-center justify-between p-3 border-b border-gray-600">
-                  <div>
-                    <p className="font-medium text-white">{employee.firstName} {employee.lastName}</p>
-                    <p className="text-sm text-gray-400">{employee.email}</p>
+                  <div className="flex-1 min-w-0">
+                    <p className="font-medium text-white truncate">{employee.firstName} {employee.lastName}</p>
+                    <p className="text-sm text-gray-400 truncate">{employee.email}</p>
                   </div>
                   <button
                     onClick={() => assignEmployee(employee._id)}
                     disabled={selectedProject.assignedEmployees?.some(e => e._id === employee._id)}
-                    className={`px-3 py-1 rounded-md text-sm ${
+                    className={`px-3 py-1 rounded-md text-sm whitespace-nowrap ml-2 ${
                       selectedProject.assignedEmployees?.some(e => e._id === employee._id)
                         ? 'bg-gray-500 text-gray-300 cursor-not-allowed'
                         : 'bg-green-600 text-white hover:bg-green-700'
@@ -391,7 +399,7 @@ const ManageProjects = () => {
             <div className="mt-4 flex justify-end">
               <button
                 onClick={() => setShowAssignModal(false)}
-                className="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-400"
+                className="px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-400 w-full sm:w-auto"
               >
                 Close
               </button>

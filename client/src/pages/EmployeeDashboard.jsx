@@ -7,6 +7,7 @@ import API from '../services/api';
 const EmployeeDashboard = () => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(() => {
     fetchAssignedProjects();
@@ -48,6 +49,8 @@ const EmployeeDashboard = () => {
           localStorage.removeItem('user');
           window.location.href = '/login';
         }}
+        isOpen={sidebarOpen}
+        onToggle={() => setSidebarOpen(!sidebarOpen)}
       />
 
       {/* Main Content */}
@@ -62,7 +65,7 @@ const EmployeeDashboard = () => {
 export const EmployeeHome = () => {
   return (
     <div className="space-y-8">
-      <h1 className="text-3xl font-bold mb-6 text-center text-white">My Assigned Projects</h1>
+      <h1 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-center text-white">My Assigned Projects</h1>
       <p className="text-gray-300 text-center">View your assigned projects in the My Projects section</p>
     </div>
   );
